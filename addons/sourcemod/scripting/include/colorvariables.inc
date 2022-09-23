@@ -190,7 +190,9 @@ stock void CReplyToCommand(int iClient, const char[] sMessage, any ...)
 		CRemoveColors(sBuffer, sizeof(sBuffer));
 		PrintToConsole(iClient, "%s", sBuffer);
 	} else {
+		CSkipNextPrefix();
 		CPrintToChat(iClient, "%s", sBuffer);
+		g_bIgnorePrefix = false;
 	}
 }
 
